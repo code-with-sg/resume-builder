@@ -122,10 +122,15 @@ document.addEventListener("DOMContentLoaded", () => {
                                     placeholder="2026" required>
                             </div>
 
-                            <div class="form-group">
+                                                       <div class="form-group">
                                 <label>Percentage / CGPA (Optional)</label>
-                                <input class="edu-marks"
-                                    placeholder="e.g. 75% or 8.2 CGPA">
+                                <div style="position:relative;">
+                                    <input class="edu-marks" type="number" min="0" max="100" step="0.1"
+                                        placeholder="e.g. 75"
+                                        style="padding-right:36px;"
+                                        oninput="if(this.value>100)this.value=100; if(this.value<0)this.value=0;">
+                                    <span style="position:absolute; right:12px; top:50%; transform:translateY(-50%); color:#777; font-size:14px; pointer-events:none;">%</span>
+                                </div>
                             </div>
 
                         </div>
@@ -142,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     <label>Select Your Skills *</label>
 
-   <small id="skillCount">Choose up to 5 skills (0/5 selected).</small>
+   <small id="skillCount">Choose up to 10 skills (0/10 selected).</small>
 
     <div class="skill-options">
 
@@ -292,8 +297,59 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </div>
 
+                <!-- PERSONAL DETAILS -->
+                <h3 class="form-section-title">04. Personal Details (Optional)</h3>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                                               <label>Date of Birth</label>
+                        <input type="date" id="dob">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <div class="radio-options">
+                            <label class="radio-option">
+                                <input type="radio" name="gender" value="Male"> Male
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="gender" value="Female"> Female
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="gender" value="Other"> Other
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Marital Status</label>
+                        <div class="radio-options">
+                                                        <label class="radio-option">
+                                <input type="radio" name="marital" value="Unmarried"> Unmarried
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="marital" value="Married"> Married
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Nationality</label>
+                        <div class="radio-options">
+                            <label class="radio-option">
+                                <input type="radio" name="nationality" value="Indian" checked> Indian
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="nationality" value="Other"> Other
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
                 <!-- EXPERIENCE -->
-                <h3 class="form-section-title">04. Work Experience (Optional)</h3>
+                <h3 class="form-section-title">05. Work Experience (Optional)</h3>
 
                 <div id="experienceList">
 
@@ -301,16 +357,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         <div class="form-grid">
 
-                            <div class="form-group">
-                                <label>Company Name</label>
-                                <input class="exp-company"
-                                    placeholder="Company name">
+                                                   <div class="form-group">
+                                <label>Job Title / Role *</label>
+                                <input class="exp-role"
+                                    placeholder="e.g. Sales Executive" required>
                             </div>
 
                             <div class="form-group">
-                                <label>Job Role</label>
-                                <input class="exp-role"
-                                    placeholder="Your job role">
+                                <label>Company Name *</label>
+                                <input class="exp-company"
+                                    placeholder="e.g. ABC Pvt Ltd" required>
+                            </div>
+
+                                                     <div class="form-group">
+                                <label>From</label>
+                                <input type="month" class="exp-from">
+                            </div>
+
+                            <div class="form-group">
+                                <label>To (ya Present select karo)</label>
+                                <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+                                    <input type="month" class="exp-to-date" style="flex:1; min-width:140px;">
+                                    <label style="display:flex; align-items:center; gap:5px; font-size:13px; font-weight:500; cursor:pointer; white-space:nowrap;">
+                                        <input type="checkbox" class="exp-present" style="accent-color:#5A3B8C; width:15px; height:15px;">
+                                        Present
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="form-group full-width">
@@ -328,7 +400,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                 <!-- ADDITIONAL DETAILS -->
-                <h3 class="form-section-title">05. Additional Details</h3>
+                <h3 class="form-section-title">06. Additional Details</h3>
 
               
 <div class="form-group full-width">
@@ -413,20 +485,22 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
 
 
+                              <div class="form-group full-width" style="margin-top:20px;">
+                    <label>Career Objective / Summary (Optional)</label>
+                    <textarea id="careerSummary" rows="3" placeholder="e.g. A motivated B.Com graduate seeking an accountant role where I can apply my Tally and Excel skills..."></textarea>
+                    <small>Write 2-3 lines about yourself and your goal. Leave blank for auto-generated summary.</small>
+                </div>
+
                 <div class="form-group full-width" style="margin-top:20px;">
                     <label>LinkedIn / Portfolio URL (Optional)</label>
                     <input type="url" id="portfolio"
                         placeholder="https://...">
                 </div>
 
-                <button type="submit" class="primary-button">
-                    Generate Resume Preview
-                </button>
-
-            </form>
+                           </form>
 
 <!-- RESUME TEMPLATE SELECTION -->
-<h3 class="form-section-title">06. Choose Your Resume Template</h3>
+<h3 class="form-section-title">07. Choose Your Resume Template</h3>
 
 <div class="template-options">
 
@@ -476,8 +550,28 @@ document.addEventListener("DOMContentLoaded", () => {
         <strong>Modern</strong>
         <small>Contemporary layout</small>
     </label>
+    <label class="template-card">
+        <input type="radio" name="resumeTemplate" value="ats">
+        <div class="template-design ats-design">
+            <div class="ats-mini-name"></div>
+            <div class="ats-mini-contact"></div>
+            <div class="ats-mini-divider"></div>
+            <div class="template-mini-heading" style="color:#222;font-size:7px;letter-spacing:0.5px;">PROFESSIONAL SUMMARY</div>
+            <div class="template-mini-line"></div>
+            <div class="template-mini-heading" style="color:#222;font-size:7px;letter-spacing:0.5px;">EDUCATION</div>
+            <div class="template-mini-line short"></div>
+            <div class="template-mini-heading" style="color:#222;font-size:7px;letter-spacing:0.5px;">SKILLS</div>
+            <div class="template-mini-line"></div>
+        </div>
+        <strong>ATS Friendly</strong>
+        <small>Machine-readable, no design</small>
+    </label>
 
 </div>
+
+<button type="submit" form="resumeForm" class="primary-button" style="margin-top:24px; width:100%;">
+    Generate Resume Preview →
+</button>
 
             <!-- RESUME PREVIEW -->
             <div id="resumePreview" class="resume-preview" hidden>
@@ -737,7 +831,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const total = builtInCount + customCount;
 
         skillCount.textContent =
-            `Choose up to 5 skills (${total}/5 selected).`;
+            `Choose up to 10 skills (${total}/10 selected).`;
 
     }
 
@@ -751,11 +845,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const customCount = getCustomSkills().length;
 
-            if (builtInCount + customCount > 5) {
+            if (builtInCount + customCount > 10) {
 
                 checkbox.checked = false;
 
-                alert("You can select a maximum of 5 skills.");
+                alert("You can select a maximum of 10 skills.");
 
             }
 
@@ -771,7 +865,7 @@ document.addEventListener("DOMContentLoaded", () => {
             'input[name="skillOption"]:checked'
         ).length;
 
-        const allowedCustomCount = Math.max(0, 5 - builtInCount);
+        const allowedCustomCount = Math.max(0, 10 - builtInCount);
 
         const customSkills = getValueForSkill(customSkillsInput.value);
 
@@ -858,6 +952,8 @@ document.addEventListener("DOMContentLoaded", () => {
             year: entry.querySelector(".edu-year").value,
 
             marks: entry.querySelector(".edu-marks").value.trim()
+                ? entry.querySelector(".edu-marks").value.trim() + "%"
+                : ""
 
         })).filter(item => {
 
@@ -872,9 +968,23 @@ document.addEventListener("DOMContentLoaded", () => {
             ...document.querySelectorAll(".experience-entry")
         ].map(entry => ({
 
-            company: entry.querySelector(".exp-company").value.trim(),
+            role: entry.querySelector(".exp-role")?.value.trim() || "",
+            company: entry.querySelector(".exp-company")?.value.trim() || "",
+            from: (() => {
+                const v = entry.querySelector(".exp-from")?.value || "";
+                if (!v) return "";
+                const [y, m] = v.split("-");
+                return `${m}/${y}`;
+            })(),
 
-            role: entry.querySelector(".exp-role").value.trim(),
+            to: (() => {
+                const isPresent = entry.querySelector(".exp-present")?.checked;
+                if (isPresent) return "Present";
+                const v = entry.querySelector(".exp-to-date")?.value || "";
+                if (!v) return "";
+                const [y, m] = v.split("-");
+                return `${m}/${y}`;
+            })(),
 
             description: entry.querySelector(".exp-description").value.trim()
 
@@ -950,11 +1060,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     ...getCustomSkills()
                 ])
-            ].slice(0, 5),
+            ].slice(0, 10),
             experience,
 
             languages: uniqueLanguages,
-            portfolio: getValue("portfolio")
+            portfolio: getValue("portfolio"),
+            summary: getValue("careerSummary"),
+            dob: (() => {
+                const v = getValue("dob");
+                if (!v) return "";
+                const [y, m, d] = v.split("-");
+                return `${d}/${m}/${y}`;
+            })(),
+            gender: document.querySelector('input[name="gender"]:checked')?.value || "",
+            marital: document.querySelector('input[name="marital"]:checked')?.value || "",
+            nationality: document.querySelector('input[name="nationality"]:checked')?.value || ""
 
         };
 
@@ -983,7 +1103,64 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
 
         // Use user's objective if provided, otherwise use default summary
-        const summary = defaultSummary;
+        const summary = (data.summary && data.summary.trim()) ? data.summary.trim() : defaultSummary;
+
+        // ATS template alag se generate hoga
+        if (selectedTemplate === "ats") {
+            return `<article class="print-resume resume-ats">
+
+            <header class="resume-header">
+                <h1>${safe(data.name)}</h1>
+                <p>${safe(data.phone)} | ${safe(data.email)} | ${safe(data.city)}, ${safe(data.state)}${data.portfolio ? ` | ${safe(data.portfolio)}` : ""}</p>
+            </header>
+
+            <section class="resume-summary">
+                <h2>PROFESSIONAL SUMMARY</h2>
+                <p>${safe(summary)}</p>
+            </section>
+
+            <section class="resume-education">
+                <h2>EDUCATION</h2>
+                ${data.education.map(item => `
+                <div class="resume-entry">
+                    <p><strong>${safe(item.qualification)}</strong> — ${safe(item.institute)} | ${safe(item.year)}${item.marks ? ` | ${safe(item.marks)}` : ""}</p>
+                </div>`).join("")}
+            </section>
+
+            <section class="resume-skills-section">
+                <h2>SKILLS</h2>
+                <p>${data.skills.map(s => safe(s)).join(" | ")}</p>
+            </section>
+
+            ${data.experience.length ? `
+            <section class="resume-experience">
+                <h2>WORK EXPERIENCE</h2>
+                ${data.experience.map(item => `
+                <div class="resume-entry">
+                    ${item.role ? `<p><strong>${safe(item.role)}</strong>${item.company ? ` — ${safe(item.company)}` : ""}${(item.from || item.to) ? ` | ${safe(item.from)}${item.from && item.to ? " – " : ""}${safe(item.to)}` : ""}</p>` : ""}
+                    ${item.description ? `<p>${safe(item.description)}</p>` : ""}
+                </div>`).join("")}
+            </section>` : ""}
+
+            ${data.languages.length ? `
+            <section class="resume-languages">
+                <h2>LANGUAGES</h2>
+                <p>${data.languages.map(l => safe(l)).join(" | ")}</p>
+            </section>` : ""}
+
+            ${(data.dob || data.gender || data.marital || data.nationality) ? `
+            <section>
+                <h2>PERSONAL DETAILS</h2>
+                <p>${[
+                        data.dob ? `DOB: ${safe(data.dob)}` : "",
+                        data.gender ? `Gender: ${safe(data.gender)}` : "",
+                        data.marital ? `Marital Status: ${safe(data.marital)}` : "",
+                        data.nationality ? `Nationality: ${safe(data.nationality)}` : ""
+                    ].filter(Boolean).join(" | ")}</p>
+            </section>` : ""}
+
+        </article>`;
+        }
 
         return `
 
@@ -1036,11 +1213,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         <p>
                             <strong>${safe(item.institute)}</strong>
-                            <span> | ${safe(item.year)}</span>
+                            <span class="entry-meta"> &nbsp;|&nbsp; Year: ${safe(item.year)}</span>
                         </p>
 
                         ${item.marks ? `
-                            <p>${safe(item.marks)}</p>
+                            <p class="entry-sub">Marks / CGPA: <strong>${safe(item.marks)}</strong></p>
                         ` : ""}
 
                     </div>
@@ -1084,11 +1261,14 @@ document.addEventListener("DOMContentLoaded", () => {
                             ` : ""}
 
                             ${item.company ? `
-                                <p><strong>${safe(item.company)}</strong></p>
+                                <p>
+                                    <span class="entry-label">Company: </span><strong>${safe(item.company)}</strong>
+                                    ${(item.from || item.to) ? `<span class="entry-meta"> &nbsp;|&nbsp; Duration: ${safe(item.from || "")}${item.from && item.to ? " – " : ""}${safe(item.to || "")}</span>` : ""}
+                                </p>
                             ` : ""}
 
                             ${item.description ? `
-                                <p>${safe(item.description)}</p>
+                                <p class="entry-sub"><span class="entry-label">Work: </span>${safe(item.description)}</p>
                             ` : ""}
 
                         </div>
@@ -1100,10 +1280,53 @@ document.addEventListener("DOMContentLoaded", () => {
             ` : ""}
 
 
+            <!-- PERSONAL DETAILS -->
+
+            ${(data.dob || data.gender || data.marital || data.nationality) ? `
+
+                <section class="resume-personal-details">
+
+                    <h2>Personal Details</h2>
+
+                    <div class="personal-details-grid">
+
+                        ${data.dob ? `
+                            <div class="detail-item">
+                                <span class="detail-label">Date of Birth</span>
+                                <span class="detail-value">${safe(data.dob)}</span>
+                            </div>
+                        ` : ""}
+
+                        ${data.gender ? `
+                            <div class="detail-item">
+                                <span class="detail-label">Gender</span>
+                                <span class="detail-value">${safe(data.gender)}</span>
+                            </div>
+                        ` : ""}
+
+                        ${data.marital ? `
+                            <div class="detail-item">
+                                <span class="detail-label">Marital Status</span>
+                                <span class="detail-value">${safe(data.marital)}</span>
+                            </div>
+                        ` : ""}
+
+                        ${data.nationality ? `
+                            <div class="detail-item">
+                                <span class="detail-label">Nationality</span>
+                                <span class="detail-value">${safe(data.nationality)}</span>
+                            </div>
+                        ` : ""}
+
+                    </div>
+
+                </section>
+
+            ` : ""}
+
             <!-- LANGUAGES -->
 
             ${data.languages.length ? `
-
                 <section class="resume-languages">
 
                     <h2>Languages</h2>
@@ -1140,10 +1363,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (!resumeElement) return;
 
-                resumeElement.classList.toggle(
-                    "resume-modern",
-                    template.value === "modern"
-                );
+                resumeElement.classList.toggle("resume-modern", template.value === "modern");
+                resumeElement.classList.toggle("resume-ats", template.value === "ats");
 
             });
 
@@ -1224,7 +1445,7 @@ document.addEventListener("DOMContentLoaded", () => {
             )?.value || "classic";
 
             const options = {
-                margin: [12, 12, 12, 12],
+                margin: [8, 8, 8, 8],
                 filename: "SKY-GRIT-Resume.pdf",
                 image: {
                     type: "jpeg",
@@ -1242,15 +1463,30 @@ document.addEventListener("DOMContentLoaded", () => {
                     orientation: "portrait"
                 },
                 pagebreak: {
-                    mode: ["css", "legacy"]
+                    mode: ["css", "legacy"],
+                    avoid: [".resume-entry", ".resume-skills-section", ".resume-summary", ".resume-header"]
                 }
             };
 
-            try {
+                    try {
                 resumeElement.classList.toggle(
                     "resume-modern",
                     selectedTemplate === "modern"
                 );
+
+                          // Flex layout hatao — blank page ka root cause
+                resumeElement.style.display = "block";
+
+                // Modern template ki border ko actual height tak limit karo
+                if (selectedTemplate === "modern") {
+                    const actualHeight = resumeElement.scrollHeight;
+                    resumeElement.style.backgroundImage = `linear-gradient(#2A1E4D, #2A1E4D)`;
+                    resumeElement.style.backgroundSize = `7px ${actualHeight}px`;
+                    resumeElement.style.backgroundRepeat = `no-repeat`;
+                    resumeElement.style.backgroundPosition = `left top`;
+                    resumeElement.style.borderLeft = `none`;
+                    resumeElement.style.paddingLeft = `19px`;
+                }
 
                 await html2pdf()
                     .set(options)
@@ -1261,11 +1497,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.error("PDF generation error:", error);
                 alert("PDF could not be generated. Please try again.");
 
-            } finally {
+                     } finally {
                 resumeElement.classList.toggle(
                     "resume-modern",
                     selectedTemplate === "modern"
                 );
+
+                             // Inline styles cleanup
+                resumeElement.style.display = "";
+                resumeElement.style.backgroundImage = "";
+                resumeElement.style.backgroundSize = "";
+                resumeElement.style.backgroundRepeat = "";
+                resumeElement.style.backgroundPosition = "";
+                resumeElement.style.borderLeft = "";
+                resumeElement.style.paddingLeft = "";
 
                 button.disabled = false;
                 button.textContent = originalText;
