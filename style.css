@@ -1664,3 +1664,136 @@ a {
     height: 3px;
     margin: 5px 0;
 }
+
+/* ========================================
+   LEGAL PAGES - TERMS & PRIVACY
+======================================== */
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.footer-links a {
+    color: var(--lavender);
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--white);
+}
+
+.footer-links span {
+    color: var(--accent);
+}
+
+.legal-page {
+    min-height: 75vh;
+    padding: 65px 0 85px;
+    background: var(--light-bg);
+}
+
+.legal-header {
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(90, 59, 140, 0.35),
+            transparent 40%
+        ),
+        var(--bg-dark);
+
+    color: var(--white);
+    padding: 55px 30px;
+    border-radius: var(--radius);
+    margin-bottom: 35px;
+}
+
+.legal-header .eyebrow {
+    margin-bottom: 10px;
+}
+
+.legal-header h1 {
+    font-size: clamp(30px, 5vw, 42px);
+    margin-bottom: 12px;
+}
+
+.legal-header p {
+    color: var(--lavender);
+    font-size: 14px;
+}
+
+.legal-content {
+    background: var(--white);
+    border: 1px solid #EAE7F1;
+    border-radius: var(--radius);
+    padding: 40px;
+    box-shadow: var(--shadow);
+}
+
+.legal-content section {
+    margin-bottom: 32px;
+}
+
+.legal-content section:last-child {
+    margin-bottom: 0;
+}
+
+.legal-content h2 {
+    color: var(--bg-purple);
+    font-size: 21px;
+    margin-bottom: 12px;
+}
+
+.legal-content p,
+.legal-content li {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.85;
+}
+
+.legal-content ul {
+    padding-left: 22px;
+    margin-top: 10px;
+}
+
+.legal-content li {
+    margin-bottom: 7px;
+}
+
+.legal-content a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.legal-back {
+    display: inline-block;
+    margin-top: 25px;
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+@media (max-width: 650px) {
+
+    .legal-page {
+        padding: 40px 0 60px;
+    }
+
+    .legal-header {
+        padding: 35px 22px;
+    }
+
+    .legal-content {
+        padding: 25px 20px;
+    }
+
+    .legal-content h2 {
+        font-size: 19px;
+    }
+
+}

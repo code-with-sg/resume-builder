@@ -357,17 +357,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         <div class="form-grid">
 
-                                                   <div class="form-group">
-                                <label>Job Title / Role *</label>
-                                <input class="exp-role"
-                                    placeholder="e.g. Sales Executive" required>
-                            </div>
+                                               <div class="form-group">
+    <label>Job Title / Role</label>
+    <input class="exp-role"
+        placeholder="e.g. Sales Executive">
+</div>
 
-                            <div class="form-group">
-                                <label>Company Name *</label>
-                                <input class="exp-company"
-                                    placeholder="e.g. ABC Pvt Ltd" required>
-                            </div>
+<div class="form-group">
+    <label>Company Name</label>
+    <input class="exp-company"
+        placeholder="e.g. ABC Pvt Ltd">
+</div>
 
                                                      <div class="form-group">
                                 <label>From</label>
@@ -1468,13 +1468,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             };
 
-                    try {
+            try {
                 resumeElement.classList.toggle(
                     "resume-modern",
                     selectedTemplate === "modern"
                 );
 
-                          // Flex layout hatao — blank page ka root cause
+                // Flex layout hatao — blank page ka root cause
                 resumeElement.style.display = "block";
 
                 // Modern template ki border ko actual height tak limit karo
@@ -1497,13 +1497,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.error("PDF generation error:", error);
                 alert("PDF could not be generated. Please try again.");
 
-                     } finally {
+            } finally {
                 resumeElement.classList.toggle(
                     "resume-modern",
                     selectedTemplate === "modern"
                 );
 
-                             // Inline styles cleanup
+                // Inline styles cleanup
                 resumeElement.style.display = "";
                 resumeElement.style.backgroundImage = "";
                 resumeElement.style.backgroundSize = "";
