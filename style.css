@@ -1797,3 +1797,94 @@ a {
     }
 
 }
+
+/* ========================================
+   SKY GRIT - FAQ SECTION
+======================================== */
+
+.faq-section {
+    background: var(--light-bg);
+    padding: 85px 0;
+}
+
+.faq-section .section-heading {
+    margin-bottom: 40px;
+}
+
+.faq-section .section-heading h2 {
+    color: var(--bg-dark);
+    font-size: clamp(28px, 4vw, 36px);
+}
+
+.faq-list {
+    max-width: 850px;
+    margin: 0 auto;
+    display: grid;
+    gap: 16px;
+}
+
+.faq-item {
+    background: var(--white);
+    padding: 24px 28px;
+    border: 1px solid #EAE7F1;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(14, 11, 29, 0.04);
+    transition: border-color 0.25s ease,
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+.faq-item:hover {
+    border-color: var(--lavender);
+    transform: translateY(-2px);
+    box-shadow: 0 9px 25px rgba(14, 11, 29, 0.07);
+}
+
+.faq-item h3 {
+    color: var(--bg-purple);
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 9px;
+}
+
+.faq-item p {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* FAQ Mobile Responsive */
+
+@media (max-width: 650px) {
+    .faq-section {
+        padding: 60px 0;
+    }
+
+    .faq-section .section-heading {
+        margin-bottom: 30px;
+    }
+
+    .faq-item {
+        padding: 20px 18px;
+    }
+
+    .faq-item h3 {
+        font-size: 15px;
+    }
+
+    .faq-item p {
+        font-size: 13px;
+    }
+}
+
+/* Reduced Motion */
+
+@media (prefers-reduced-motion: reduce) {
+    .faq-item {
+        transition: none;
+    }
+
+    .faq-item:hover {
+        transform: none;
+    }
+}
